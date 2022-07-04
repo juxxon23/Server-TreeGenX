@@ -3,6 +3,7 @@ const cors = require('cors');
 
 const config = require('./common/config/env.config.js');
 const userConfig = require('./user/routes.config');
+const authConfig = require('./authorization/routes.config');
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 
 /* Routes */
 app.use("/user", userConfig.router);
+app.use("/auth", authConfig.router);
 
 
 app.listen(config.port, function () {
